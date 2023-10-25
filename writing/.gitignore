@@ -1,0 +1,7 @@
+# Only keep qmd file
+manuscript*
+!*.qmd
+/.quarto/
+
+
+# in base directory

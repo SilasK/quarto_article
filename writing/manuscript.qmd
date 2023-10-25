@@ -1,0 +1,32 @@
+---
+# other metadata is in the _quarto.yaml file or metadata.yml
+---
+
+<!-- comment if not needed -->
+{{< include _doc.qmd >}}
+
+
+<!-- Main text -->
+
+
+{{< include _introduction.qmd >}}
+
+{{< include _results.qmd >}}
+
+{{< include _discussion.qmd >}}
+
+{{< include _methods.qmd >}}
+
+# References
+<!-- the pattern below controls the placement of the references -->
+:::{#refs}
+:::
+
+
+
+{{< include _post-matter.qmd >}}
+
+{{< include _supplementary.qmd >}}
+
+
+

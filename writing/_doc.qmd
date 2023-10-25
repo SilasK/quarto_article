@@ -1,0 +1,58 @@
+
+# Small doc section.
+
+<!-- 
+Put comments around the whole section if no longer used
+-->
+
+:: {.callout-note}
+This is a smale section with some reccomendation and examples.
+::: 
+
+
+
+## citations {#sec-citations}
+Cite doi or name in bibtext. you can export them from mendeley or zotero to resources/bibliography.bib
+
+ [@MacFarlane_2023 ; @doi:10.21105%2Fjoss.00027 ].
+
+@MacFarlane_2023 says something about the subject. (works only with autor name style)
+
+## Cross References
+
+@sec-citations
+
+
+## Figures
+During drafting I suggest top put many panels in a multi figure.
+
+Figures shoiuld be saved in figures/ and should be in svg format.
+svg can directly be compiled to pdf https://quarto.org/docs/prerelease/1.3/pdf.html
+
+
+::: {#fig-example layout-ncol=2}
+
+
+![legend for subfigure 1](https://allisonhorst.github.io/palmerpenguins/logo.png){#fig-logo width=50%}
+
+![](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png){#fig-culmen width=50%}
+
+
+
+Finally all thext would be in a single caption but during the drafting it is easier to have it in each subfigure.
+The space after this line is very important!!
+
+:::
+
+
+
+Ref whole figure with @fig-example
+Ref panel with @fig-culmen
+
+The advantage is that if we change pannels e.g. man figure/ suplementary figure the numbering will be updated automatically.
+
+## Writing guidelines:
+1. Use as many empty lines as necessary.
+1. new line after each sentence, to make your live with Git easier. 
+   - Don't break after abreviations like `Fig. `. Use [special spaces](https://www.tutorialspoint.com/online_markdown_editor.php) to distinguish them.
+2. Advanced: use [semantic line breaks](https://sembr.org/). 

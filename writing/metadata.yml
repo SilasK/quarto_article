@@ -34,6 +34,3 @@ author:
   - name: Author Three
     affiliations:
       - ref: 1
-abstract: |
-  The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.
-keywords: [template, demo]

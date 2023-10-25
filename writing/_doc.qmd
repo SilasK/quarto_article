@@ -5,7 +5,7 @@
 Put comments around the whole section if no longer used
 -->
 
-:: {.callout-note}
+::: {.callout-note}
 This is a smale section with some reccomendation and examples.
 ::: 
 
@@ -14,9 +14,12 @@ This is a smale section with some reccomendation and examples.
 ## citations {#sec-citations}
 Cite doi or name in bibtext. you can export them from mendeley or zotero to resources/bibliography.bib
 
- [@MacFarlane_2023 ; @doi:10.21105%2Fjoss.00027 ].
+[@MacFarlane_2023 ; @doi:10.21105%2Fjoss.00027].
+
 
 @MacFarlane_2023 says something about the subject. (works only with autor name style)
+
+
 
 ## Cross References
 
@@ -53,6 +56,8 @@ The advantage is that if we change pannels e.g. man figure/ suplementary figure 
 
 ## Writing guidelines:
 1. Use as many empty lines as necessary.
-1. new line after each sentence, to make your live with Git easier. 
-   - Don't break after abreviations like `Fig. `. Use [special spaces](https://www.tutorialspoint.com/online_markdown_editor.php) to distinguish them.
-2. Advanced: use [semantic line breaks](https://sembr.org/). 
+2. new line after each sentence, to make your live with Git easier. 
+   Don't break after abreviations like `Fig. `
+   Use [special spaces](https://www.tutorialspoint.com/tpcg.php?p=1VgtlFdW) (Alt+Space) to distinguish them.
+
+3. Advanced: use [semantic line breaks](https://sembr.org/). 

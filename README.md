@@ -33,7 +33,10 @@ git clean -x -f writing/
 
 ## Continuous integration
 Github action can render the files as test.
-If the action run, you can see the pdf `https://github.com/<user>/<reponame>/blob/gh-pages/manuscript.pdf`
-DocX and html are also available.
+If the action run, you can [see the pdf](https://github.com/silask/quarto_article/blob/gh-pages/manuscript.pdf)
+
+Adapt this to `https://github.com/<user>/<reponame>/blob/gh-pages/manuscript.pdf` for your repo.
+
+DocX and html are also available at [`https://github.com/<user>/<reponame>/blob/gh-pages/`](https://github.com/silask/quarto_article/blob/gh-pages/)
 
 Obviously only if you have access to the repository.

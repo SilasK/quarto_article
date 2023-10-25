@@ -5,14 +5,15 @@ bibliography:
   - "resources/__from_DOI.bib" # this file is created by doi2cite.lua
 
 
-
+date: today
+date-format: "D MMMM YYYY"
 
 filters:
   - resources/doi2cite.lua
   - quarto
 
 # if you prefer another style
-csl: https://raw.githubusercontent.com/citation-style-language/styles/0749a19b8306f2e8dcb9bf1a2e3a6992666030ac/nature.csl 
+# csl: https://raw.githubusercontent.com/citation-style-language/styles/0749a19b8306f2e8dcb9bf1a2e3a6992666030ac/nature.csl 
 
 
 #project:
@@ -30,13 +31,23 @@ format:
 
   docx: default
 
-  pdf:
-    papersize: a4
-    geometry:
-      - margin=1in
-    linestretch: 1.25
-    fontfamily: palatino # Palatino https://www.overleaf.com/learn/latex/Font_typefaces
+  # pdf:
+  #   papersize: a4
+  #   geometry:
+  #     - margin=1in
+  #   linestretch: 1.25
+  #   fontfamily: palatino # Palatino https://www.overleaf.com/learn/latex/Font_typefaces
+  #   keep-tex: true
+  #   number-sections: false
+  #   colorlinks: false
+  #   cite-method: biblatex # ciations with latex
+  
+  simple-article-pdf:
     keep-tex: true
-    number-sections: false
     colorlinks: false
-    cite-method: biblatex # ciations with latex
+    indent: false
+    classoption: 
+      - normalnumbers
+    #  - 10pt
+    #  - twocolumn
+    #  - twoside

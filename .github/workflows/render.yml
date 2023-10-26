@@ -43,8 +43,8 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: manuscript.pdf
-          path: writing/manuscript.pdf
+          name: all_formats
+          path: writing/manuscript.[pdf|docx|html]
 
       - name: Publish HTML
         uses: quarto-dev/quarto-actions/publish@v2

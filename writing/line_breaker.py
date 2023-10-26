@@ -4,23 +4,32 @@ import re
 import sys
 import os
 
+import re
+
 def break_phrases(text):
-    # Clean up previous runs
-    text = re.sub(r'^(.{0,72})◀', r'\1', text, flags=re.MULTILINE)
+    # Split the text into lines
+    lines = text.split('\n')
+    
+    comment_pattern = r'^[#%]'
+    
+    # Process each line, excluding comment lines
+    processed_lines = []
+    for line in lines:
+        if not re.match(comment_pattern, line):
+            
+            # Break on sentence boundaries (hard limits) and remove trailing spaces and tabs
+            line = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) +', r'\1\2\n', line)
+            
+            # Break on conjunctions and remove trailing spaces and tabs
+            line = re.sub(r'(.{20,}?) (or|and|but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', line)
+            
+            # Break on clause boundaries (soft limits) and remove trailing spaces and tabs
+            line = re.sub(r'(.{20,}?)(,[”"]?) +', r'\1\2\n', line)
+        
+        processed_lines.append(line)
+    
+    return '\n'.join(processed_lines)
 
-    # Break on sentence boundaries (hard limits)
-    text = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) ', r'\1\2\n', text)
-
-    # Break on conjunctions
-    text = re.sub(r'(.{20,}?) (or|and|but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', text)
-
-    # Break on clause boundaries (soft limits)
-    text = re.sub(r'(.{20,}?)(,[”"]?) ', r'\1\2\n', text)
-
-    # Remove emty spaces and tabs at the end of lines
-    text = re.sub(r'[ \t]+$', '', text, flags=re.MULTILINE)
-
-    return text
 
 def process_file(input_file):
     try:
@@ -34,7 +43,7 @@ def process_file(input_file):
             file.write(processed_text)
 
     except Exception as e:
-        print(f"Error processing: {input_file}")
+        print(f"💔 Error processing: {input_file}")
         print(e)
 
 if len(sys.argv) < 2:

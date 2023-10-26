@@ -2,7 +2,7 @@
 
 bibliography: 
   - resources/bibliography.bib  
-  - "resources/__from_DOI.bib" # this file is created by doi2cite.lua
+  - 'resources/__from_DOI.bib' # this file is created by doi2cite.lua
 
 
 
@@ -12,14 +12,14 @@ filters:
   - quarto
 
 # if you prefer another style
-csl: https://raw.githubusercontent.com/citation-style-language/styles/0749a19b8306f2e8dcb9bf1a2e3a6992666030ac/nature.csl 
+# csl: https://raw.githubusercontent.com/citation-style-language/styles/0749a19b8306f2e8dcb9bf1a2e3a6992666030ac/nature.csl 
 
 
 #project:
 #  output-dir: output
 # Does not work correctly with publish
 
-toc: true
+# toc: true
 
 format:
   html:
@@ -39,4 +39,4 @@ format:
     keep-tex: true
     number-sections: false
     colorlinks: false
-    cite-method: biblatex # ciations with latex
+    #cite-method: biblatex # ciations with latex

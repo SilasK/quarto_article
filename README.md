@@ -26,7 +26,7 @@ quarto render --to docx
 
 ## Formating:
 
-The script `writing/line_breaker.py writing/*qmd`
+The script `writing/line_breaker.py writing`
 formats the text so that
 
 -  each sentence is on a new line

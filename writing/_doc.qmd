@@ -6,18 +6,22 @@ Put comments around the whole section if no longer used
 -->
 
 ::: {.callout-note}
-This is a small section with some recommendation and examples.
+This is a small section with some recommendation
+and examples.
 ::: 
 
 
 
 ## citations {#sec-citations}
-Cite doi or name in bibtex. you can export them from Mendeley or Zotero to resources/bibliography.bib
+Cite doi or name in bibtex.
+you can export them from Mendeley
+or Zotero to resources/bibliography.bib
 
 [@MacFarlane_2023 ; @doi:10.21105%2Fjoss.00027].
 
 
-@MacFarlane_2023 says something about the subject. (works only with author name style)
+@MacFarlane_2023 says something about the subject.
+(works only with author name style)
 
 
 
@@ -29,7 +33,8 @@ Cite doi or name in bibtex. you can export them from Mendeley or Zotero to resou
 ## Figures
 During drafting I suggest top put many panels in a multi figure.
 
-Figures should be saved in figures/ and should be in svg format.
+Figures should be saved in figures/
+and should be in svg format.
 svg can directly be compiled to pdf https://quarto.org/docs/prerelease/1.3/pdf.html
 
 
@@ -42,7 +47,8 @@ svg can directly be compiled to pdf https://quarto.org/docs/prerelease/1.3/pdf.h
 
 
 
-Finally all the text would be in a single caption but during the drafting it is easier to have it in each sub figure.
+Finally all the text would be in a single caption
+but during the drafting it is easier to have it in each sub figure.
 The space after this line is very important!!
 
 :::
@@ -52,11 +58,8 @@ The space after this line is very important!!
 Ref whole figure with @fig-example
 Ref panel with @fig-culmen
 
-The advantage is that if we change panels e.g. man figure/ supplementary figure the numbering will be updated automatically.
+The advantage is that if we change panels e.g.
+man figure/ supplementary figure the numbering will be updated automatically.
 
-## Writing guidelines:
-1. Use as many empty lines as necessary.
-2. new line after each sentence, to make your live with Git easier. 
-   Don't break after abbreviations like `Fig. `
-   Use [special spaces](https://www.tutorialspoint.com/tpcg.php?p=1VgtlFdW) (Alt+Space) to distinguish them.
-3. Advanced: use [semantic line breaks](https://sembr.org/). 
+
+

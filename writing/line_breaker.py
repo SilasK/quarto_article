@@ -4,31 +4,53 @@ import re
 import sys
 import os
 
-import re
 
-def break_phrases(text):
+def format_line(line):
+    # Clean up previous runs and remove trailing spaces and tabs
+    line = re.sub(r'^(.{0,72})◀', r'\1', line)
+    
+    # Break on sentence boundaries (hard limits) and remove trailing spaces and tabs
+    line = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) +', r'\1\2\n', line)
+    
+    # Break on conjunctions and remove trailing spaces and tabs
+    line = re.sub(r'(.{20,}?) (or|and|but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', line)
+    
+    # Break on clause boundaries (soft limits) and remove trailing spaces and tabs
+    line = re.sub(r'(.{20,}?)(,[”"]?) +', r'\1\2\n', line)
+    
+    return line
+
+
+def break_phrases(text, exclude_comments=False):
     # Split the text into lines
     lines = text.split('\n')
     
     comment_pattern = r'^[#%]'
+    code_block_pattern = r'^```'
     
     # Process each line, excluding comment lines
     processed_lines = []
+    in_code_block = False
+
     for line in lines:
-        if not re.match(comment_pattern, line):
-            
-            # Break on sentence boundaries (hard limits) and remove trailing spaces and tabs
-            line = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) +', r'\1\2\n', line)
-            
-            # Break on conjunctions and remove trailing spaces and tabs
-            line = re.sub(r'(.{20,}?) (or|and|but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', line)
-            
-            # Break on clause boundaries (soft limits) and remove trailing spaces and tabs
-            line = re.sub(r'(.{20,}?)(,[”"]?) +', r'\1\2\n', line)
-        
-        processed_lines.append(line)
+        if re.match(code_block_pattern, line):
+            # Toggle code block state
+            in_code_block = not in_code_block
+        if re.match(comment_pattern, line) and not in_code_block:
+            # Comment line, exclude if requested
+            if exclude_comments:
+                processed_lines.append(line)
+            else:
+                processed_lines.append(format_line(line))
+        else:
+            if in_code_block:
+                # Inside a code block, don't format
+                processed_lines.append(line)
+            else:
+                processed_lines.append(format_line(line))
     
     return '\n'.join(processed_lines)
+
 
 
 def process_file(input_file):

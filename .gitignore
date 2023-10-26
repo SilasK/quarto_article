@@ -11,3 +11,4 @@ output
 
 /.luarc.json
 *_files
+.vscode/*

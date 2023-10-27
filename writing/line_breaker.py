@@ -6,18 +6,22 @@ import os
 
 
 def format_line(line):
-    # Clean up previous runs and remove trailing spaces and tabs
-    line = re.sub(r'^(.{0,72})◀', r'\1', line)
+
     
     # Break on sentence boundaries (hard limits) and remove trailing spaces and tabs
     line = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) +', r'\1\2\n', line)
     
-    # Break on conjunctions and remove trailing spaces and tabs
-    line = re.sub(r'(.{20,}?) (or|and|but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', line)
+    # Break on conjunctions after 20 characters
+    line = re.sub(r'(.{20,}?) (but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', line)
     
-    # Break on clause boundaries (soft limits) and remove trailing spaces and tabs
-    line = re.sub(r'(.{20,}?)(,[”"]?) +', r'\1\2\n', line)
-    
+
+    # Break on commas after 40 characters if the second part is 20 chars or longer
+    line = re.sub(r'(.{40,}?)(,[”"]?)\s+(?=\S{20})', r'\1\2\n', line)
+
+    # Break on conjunctions after 40 characters if the second part is 20 chars or longer
+    line = re.sub(r'(.{40,}?)\s+(and|or?)\s+(?=\S{20})', r'\1\n\2 ', line)
+        
+
     return line
 
 

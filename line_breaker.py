@@ -29,14 +29,29 @@ def break_phrases(text, exclude_comments=False):
     # Split the text into lines
     lines = text.split("\n")
 
-    comment_pattern = r"^[#%]"
+    comment_pattern = r"^(?:[#%,]| {2,})"  # comments or lines starting with two spaces
     code_block_pattern = r"^```"
 
     # Process each line, excluding comment lines
     processed_lines = []
+    after_hedader = 0
+    # do not process yaml header
+    print("found yaml header, do not process it")
+    if lines[0].strip() == "---":
+        processed_lines.append(lines[0])
+        after_hedader = 1
+        for l in lines[after_hedader:]:
+            processed_lines.append(l)
+            after_hedader += 1
+            if l.strip() == "---":
+                break
+
+    if after_hedader >= len(lines):
+        raise Exception("Did not found closing '---' for yaml header")
+
     in_code_block = False
 
-    for line in lines:
+    for line in lines[after_hedader:]:
         if re.match(code_block_pattern, line):
             # Toggle code block state
             in_code_block = not in_code_block

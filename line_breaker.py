@@ -6,32 +6,32 @@ import os
 
 
 def format_line(line):
-
-    
     # Break on sentence boundaries (hard limits) and remove trailing spaces and tabs
-    line = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) +', r'\1\2\n', line)
-    
+    # line = re.sub(r'(.{20,}?)([.?!][”"]?|[:;]) +', r"\1\2\n", line)
+
     # Break on conjunctions after 20 characters
-    line = re.sub(r'(.{20,}?) (but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ', r'\1\n\2 ', line)
-    
+    line = re.sub(
+        r"(.{20,}?) (but|such as|for example,?|e(\. ?)?g\.?|i(\. ?)?e\.?) ",
+        r"\1\n\2 ",
+        line,
+    )
 
     # Break on commas after 40 characters if the second part is 20 chars or longer
-    line = re.sub(r'(.{40,}?)(,[”"]?)\s+(?=\S{20})', r'\1\2\n', line)
+    line = re.sub(r'(.{40,}?)(,[”"]?)\s+(?=\S{20})', r"\1\2\n", line)
 
     # Break on conjunctions after 40 characters if the second part is 20 chars or longer
-    line = re.sub(r'(.{40,}?)\s+(and|or?)\s+(?=\S{20})', r'\1\n\2 ', line)
-        
+    line = re.sub(r"(.{40,}?)\s+(and|or?)\s+(?=\S{20})", r"\1\n\2 ", line)
 
     return line
 
 
 def break_phrases(text, exclude_comments=False):
     # Split the text into lines
-    lines = text.split('\n')
-    
-    comment_pattern = r'^[#%]'
-    code_block_pattern = r'^```'
-    
+    lines = text.split("\n")
+
+    comment_pattern = r"^[#%]"
+    code_block_pattern = r"^```"
+
     # Process each line, excluding comment lines
     processed_lines = []
     in_code_block = False
@@ -52,28 +52,28 @@ def break_phrases(text, exclude_comments=False):
                 processed_lines.append(line)
             else:
                 processed_lines.append(format_line(line))
-    
-    return '\n'.join(processed_lines)
 
+    return "\n".join(processed_lines)
 
 
 def process_file(input_file):
     try:
         print(f"Processing: {input_file}")
-        with open(input_file, 'r') as file:
+        with open(input_file, "r") as file:
             text = file.read()
 
         processed_text = break_phrases(text)
 
-        with open(input_file, 'w') as file:
+        with open(input_file, "w") as file:
             file.write(processed_text)
 
     except Exception as e:
         print(f"💔 Error processing: {input_file}")
         print(e)
 
+
 if len(sys.argv) < 2:
-    print("Usage: python script.py input_file.txt or directory")
+    print("Usage: python line_breaker.py input_file.md or directory")
     sys.exit(1)
 
 for arg in sys.argv[1:]:
@@ -82,7 +82,9 @@ for arg in sys.argv[1:]:
     elif os.path.isdir(arg):
         for root, dirs, files in os.walk(arg):
             for file in files:
-                if file.endswith((".md", ".qmd", ".tex", ".txt")):  # Process specified file extensions
+                if file.endswith(
+                    (".md", ".qmd", ".tex", ".txt")
+                ):  # Process specified file extensions
                     file_path = os.path.join(root, file)
                     process_file(file_path)
 

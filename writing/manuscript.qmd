@@ -1,4 +1,26 @@
 ---
+title: "A template for writing a paper"
+date: 2023-02-29
+author:
+  - name: Norah Jones
+    affiliation:
+      - ref: cmu
+      - ref: chicago
+  - name: John Hamm
+    affiliation:
+      - ref: cmu
+
+affiliations:
+  - id: cmu
+    name: Carnegie Mellon University
+    department: Department of Statistics
+    address: 1 Oxford Street
+    city: Cambridge
+    state: MA
+    postal-code: 02138
+  - id: chicago
+    name: University of Chicago
+
 abstract: |
     The abstract serves both as a general introduction to the topic
     and as a brief, non-technical summary of the main results

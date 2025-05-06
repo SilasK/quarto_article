@@ -9,8 +9,8 @@ Special features are:
 
 # Get Started
 
-Create a repo by clicking on using the template
-Install Quarto
+1. Create a repo by clicking on using the template
+2. Install Quarto
 
 ## Render the article
 
@@ -23,6 +23,8 @@ If you have problems to render the article, you can try to render it to html or 
 quarto render --to html
 quarto render --to docx
 ```
+
+# Advanced usage
 
 ## Formating:
 

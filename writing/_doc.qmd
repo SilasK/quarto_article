@@ -21,7 +21,7 @@ or Zotero to resources/bibliography.bib
 
 
 @MacFarlane_2023 says something about the subject.
-(works only with author name style)
+(makes sense only with author name style)
 
 
 
@@ -31,10 +31,10 @@ or Zotero to resources/bibliography.bib
 
 
 ## Figures
-During drafting I suggest top put many panels in a multi figure.
+During drafting I suggest top put many panels in a [multi figure](https://quarto.org/docs/authoring/figures.html#cross-references).
 
 Figures should be saved in figures/
-and should be in svg format.
+and should be ideally in svg format. Png works too but less for pdf conversion.
 svg can directly be compiled to pdf https://quarto.org/docs/prerelease/1.3/pdf.html
 
 
@@ -43,8 +43,7 @@ svg can directly be compiled to pdf https://quarto.org/docs/prerelease/1.3/pdf.h
 
 ![legend for sub figure 1](https://allisonhorst.github.io/palmerpenguins/logo.png){#fig-logo width=50%}
 
-![](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png){#fig-culmen width=50%}
-
+![legend for sub figure 2](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png){#fig-culmen width=50%}
 
 
 Finally all the text would be in a single caption
@@ -54,6 +53,12 @@ The space after this line is very important!!
 :::
 
 
+::: {.callout-note}
+
+Apparently multi-panel figures are not working properly in docx (who would have thought) It worked before using quarto 1.3.0 and will work again in 1.7
+https://github.com/quarto-dev/quarto-cli/issues/9623
+
+:::
 
 Ref whole figure with @fig-example
 Ref panel with @fig-culmen

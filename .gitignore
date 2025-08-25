@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+
+
+/.quarto/
+output/
+output
+
+/.luarc.json
+*_files
+.vscode/*

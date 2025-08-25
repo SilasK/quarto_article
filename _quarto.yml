@@ -2,7 +2,7 @@
 
 bibliography: 
   - resources/bibliography.bib  
-  - "resources/__from_DOI.bib" # this file is created by doi2cite.lua
+  - "resources/fromDOI.bib" # this file is created by doi2cite.lua
 
 
 

@@ -6,3 +6,4 @@ manuscript*
 
 # ignore automatically generated bib file
 resources/__from_DOI.bib
+resources/fromDOI.bib

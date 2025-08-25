@@ -12,7 +12,7 @@ filters:
   - quarto
 
 # if you prefer another style
-csl: https://raw.githubusercontent.com/citation-style-language/styles/0749a19b8306f2e8dcb9bf1a2e3a6992666030ac/nature.csl 
+csl: https://raw.githubusercontent.com/citation-style-language/styles/0749a19b8306f2e8dcb9bf1a2e3a6992666030ac/nature.csl
 
 
 #project:
@@ -29,6 +29,17 @@ format:
     number-sections: true
 
   docx: default
+
+  # typst:
+  #   papersize: a4
+  #   number-sections: true
+  #   shift-heading-level-by: 0
+  #   citeproc: false
+  #   mainfont: "Palatino"
+  #   cls: nature # no online path
+  #   bibliography:
+  #     - "resources/fromDOI.bib" # only one file 
+
 
   pdf:
     papersize: a4

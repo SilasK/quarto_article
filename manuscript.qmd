@@ -36,19 +36,19 @@ keywords:
 ---
 
 <!-- comment if not needed -->
-{{< include _doc.qmd >}}
+{{< include writing/_doc.qmd >}}
 
 
 <!-- Main text -->
 
 
-{{< include _introduction.qmd >}}
+{{< include writing/_introduction.qmd >}}
 
-{{< include _results.qmd >}}
+{{< include writing/_results.qmd >}}
 
-{{< include _discussion.qmd >}}
+{{< include writing/_discussion.qmd >}}
 
-{{< include _methods.qmd >}}
+{{< include writing/_methods.qmd >}}
 
 # References
 <!-- the pattern below controls the placement of the references -->
@@ -57,9 +57,9 @@ keywords:
 
 
 
-{{< include _post-matter.qmd >}}
+{{< include writing/_post-matter.qmd >}}
 
-{{< include _supplementary.qmd >}}
+{{< include writing/_supplementary.qmd >}}
 
 
 

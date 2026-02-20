@@ -1,9 +1,0 @@
-# Only keep qmd file
-manuscript*
-!*.qmd
-/.quarto/
-
-
-# ignore automatically generated bib file
-resources/__from_DOI.bib
-resources/fromDOI.bib

@@ -285,7 +285,7 @@ function verify_path(bibpath)
             .. "In Windows-formatted filepath, Pandoc recognizes "
             .. "double backslash (" .. [[\\]] .. ") as the delimiters."
         )
-        return "__from_DOI.bib"
+        return "fromDOI.bib"
     else
         return bibpath
     end
